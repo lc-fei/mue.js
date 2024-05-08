@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <div id="mue">
-    <h1>{hello}</h1>
-    <input value="{pai}">
-  </div>
-</body>
-<script type="module">
-  import Mue from './core/Mue.js'
-  new Mue({
-    el: '#mue',
-    data: {
-      hello: 'HelloMue',
-      pai: 3.1415926
-    }
-  })
-</script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="mue">
+      <h1>{hello}</h1>
+      <input value="{pai}" />
+      <h2>{pai}</h2>
+    </div>
+  </body>
+  <script type="module">
+    import Mue from './core/Mue.js'
+    const app = new Mue({
+      el: '#mue',
+      data: {
+        hello: 'HelloMue',
+        pai: 3.1415926,
+      },
+    })
+  </script>
 </html>
