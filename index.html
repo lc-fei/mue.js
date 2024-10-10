@@ -10,6 +10,8 @@
       <h1>{hello}</h1>
       <input value="{pai}" />
       <h2>{pai}</h2>
+      <div>{pai}</div>
+      <button class="change">改变</button>
     </div>
   </body>
   <script type="module">
@@ -20,6 +22,11 @@
         hello: 'HelloMue',
         pai: 3.1415926,
       },
+    })
+    document.querySelector('.change').addEventListener('click', () => {
+      app.data.pai = app.data.pai + 1
+      app.data.hello = app.data.hello + 'w'
+      console.log(app.data.pai)
     })
   </script>
 </html>

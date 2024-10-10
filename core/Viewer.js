@@ -18,7 +18,7 @@ class Viewer {
   }
 
   update() {
-    const newValue = this.mue.data[dataKey]
+    const newValue = this.mue.data[this.dataKey]
     if (this.oldValue === newValue) {
       // 同样地，没有更新就啥也不干
       return

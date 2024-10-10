@@ -1,18 +1,18 @@
 // 发布者
 class Publisher {
   constructor(data) {
-    this.viewers = [];
+    this.viewers = []
   }
 
   addViewer(viewer) {
-    this.viewers.push(viewer);
+    this.viewers.push(viewer)
   }
 
   publish() {
     this.viewers.forEach((viewer) => {
-      viewer.update();
-    });
+      viewer.update()
+    })
   }
 }
 
-export default Publisher;
+export default Publisher

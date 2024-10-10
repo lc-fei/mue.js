@@ -17,6 +17,7 @@ class Hijacker {
     // 因为defineProperty不会进行深度监听，每一层都会创建一个新的publisher和新的defineProperty
     const publisher = new Publisher()
     let value = object[key] //把对象中的属性称取出来
+    console.log(value, 'value')
 
     if (!value) {
       return
@@ -30,7 +31,8 @@ class Hijacker {
       // 上文提到的知识点：JS的this指向
       const that = this
       // 开始劫持数据
-      Object.defineProperty(object, value, {
+      console.log(object, key, '数据劫持')
+      Object.defineProperty(object, key, {
         //监视value属性
         // 记住这个get, 这个很重要
         get() {
@@ -41,6 +43,7 @@ class Hijacker {
           return value
         },
         set(newValue) {
+          console.log(newValue, '数据劫持')
           if (value === newValue) {
             // 防止死循环: 更新->触发publish->更新->...
             return
@@ -48,7 +51,7 @@ class Hijacker {
           console.log('劫持数据')
           value = newValue
           that.hijack(object, newValue) // 提防一手新的数据是树形结构，递归一下
-          publisher.publish()
+          console.log(publisher.publish())
         },
       })
     }
