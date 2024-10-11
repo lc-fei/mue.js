@@ -53,6 +53,7 @@ class Compiler {
         const newValue = this.mue.data[dataKey]
         node.value = text.replace(reg, newValue) // 将 {xxx} 替换为具体的值
         // 监听键盘输入，完成双向绑定，M=F2(V)
+        console.log(node, attribute, 'nodea')
         node.addEventListener('input', () => {
           this.mue.data[dataKey] = node.value
         })
@@ -68,6 +69,7 @@ class Compiler {
     if (matchRes) {
       // 与上面的方法基本上一样的逻辑
       const dataKey = matchRes[1]
+      // 这里只实现了对模板编译第一层数据的绑定
       const newText = this.mue.data[dataKey]
       node.textContent = text.replace(reg, newText)
 

@@ -10,7 +10,13 @@
       <h1>{hello}</h1>
       <input value="{pai}" />
       <h2>{pai}</h2>
-      <div>{pai}</div>
+      <div>
+        <div>
+          <div>
+            <div>{deep}</div>
+          </div>
+        </div>
+      </div>
       <button class="change">改变</button>
     </div>
   </body>
@@ -21,11 +27,13 @@
       data: {
         hello: 'HelloMue',
         pai: 3.1415926,
+        deep: '深层次',
       },
     })
     document.querySelector('.change').addEventListener('click', () => {
       app.data.pai = app.data.pai + 1
       app.data.hello = app.data.hello + 'w'
+      app.data.deep = app.data.deep + '深'
       console.log(app.data.pai)
     })
   </script>
